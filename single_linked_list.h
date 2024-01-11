@@ -174,7 +174,8 @@ public:
         }
         return result;
     }
-    void insertion_sort() {
+    // insertion sort
+    void sort() {
          for (int i = 0; i < sz; ++i)
              _insertion_sort(head, i);
     }
