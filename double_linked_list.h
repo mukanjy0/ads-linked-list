@@ -174,6 +174,25 @@ public:
             temp = temp->prev;
         }
     }
+    bool is_palindrome() {
+        if (sz == 1) return true;
+        if (sz == 2) return head->value == tail->value;
+
+        Node* left = head;
+        for (int i = 0; i < (sz - 1) / 2; ++i)
+            left = left->next;
+
+        Node* right = left->next;
+        if (sz&1) left = left->prev;
+
+        while (right) {
+            if (left->value != right->value) return false;
+            right = right->next;
+            left = left->prev;
+        }
+
+        return true;
+    }
     friend ostream& operator<<(ostream& out, double_linked_list dll) {
         Node* temp = dll.head;
         if (temp != nullptr) {

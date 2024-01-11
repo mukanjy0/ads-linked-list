@@ -66,10 +66,26 @@ void test_dll() {
     dll.clear();
     cout << dll;
     cout << boolalpha << dll.empty() << '\n';
+}
 
+void test_dll_extra() {
+    cout << "Double linked list extra functionality test\n";
+    // testing is_palindrome
+    cout << "\nTesting is_palindrome\n";
+    double_linked_list<int> dll;
+    for (int i = 0; i < 10; ++i)
+        dll.push_back(i);
+    for (int i = 0; i < 10; ++i)
+        dll.push_front(i);
+    cout << dll;
+    cout << boolalpha << dll.is_palindrome() << '\n';
+    cout << dll.pop_front() << '\n';
+    cout << boolalpha << dll.is_palindrome() << '\n';
 }
 
 int main() {
-    test_dll();
+    test_sll();
+    cout << '\n';
+    test_dll_extra();
     return 0;
 }
