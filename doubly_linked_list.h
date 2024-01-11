@@ -2,30 +2,30 @@
 // Created by iansg on 1/10/2024.
 //
 
-#ifndef SINGLE_LINKED_LIST_DOUBLE_LINKED_LIST_H
-#define SINGLE_LINKED_LIST_DOUBLE_LINKED_LIST_H
+#ifndef SINGLE_LINKED_LIST_DOUBLY_LINKED_LIST_H
+#define SINGLE_LINKED_LIST_DOUBLY_LINKED_LIST_H
 
 #include <iostream>
 #include <stdexcept>
 using namespace std;
 
 template<typename T>
-class double_linked_list {
+class doubly_linked_list {
     class Node {
         T value {};
         Node* prev {};
         Node* next {};
-        friend double_linked_list;
+        friend doubly_linked_list;
     public:
         Node() = default;
-        Node(T val) : value(val) {}
+        explicit Node(T val) : value(val) {}
     };
 
     Node* head {};
     Node* tail {};
     int sz {};
 public:
-    double_linked_list() = default;
+    doubly_linked_list() = default;
     T front() { return head->value; }
     T back() { return tail->value; }
     void push_front(T val) {
@@ -247,7 +247,7 @@ public:
             left = left->next;
         }
     }
-    friend ostream& operator<<(ostream& out, double_linked_list dll) {
+    friend ostream& operator<<(ostream& out, doubly_linked_list dll) {
         Node* temp = dll.head;
         if (temp != nullptr) {
             out << temp->value;
@@ -261,4 +261,4 @@ public:
     }
 };
 
-#endif //SINGLE_LINKED_LIST_DOUBLE_LINKED_LIST_H
+#endif //SINGLE_LINKED_LIST_DOUBLY_LINKED_LIST_H

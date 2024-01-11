@@ -1,12 +1,12 @@
 #include <iostream>
-#include "single_linked_list.h"
-#include "double_linked_list.h"
+#include "singly_linked_list.h"
+#include "doubly_linked_list.h"
 
 using namespace std;
 
 void test_sll() {
-    cout << "Single linked list tests\n";
-    single_linked_list<int> sll;
+    cout << "singly linked list tests\n";
+    singly_linked_list<int> sll;
     for (int i = 15; i > 0; --i)
         sll.push_back(i);
     cout << sll;
@@ -25,10 +25,10 @@ void test_sll() {
 }
 
 void test_dll() {
-    cout << "Double linked list tests\n";
+    cout << "doubly linked list tests\n";
     // testing push
     cout << "\nTesting push\n";
-    double_linked_list<int> dll;
+    doubly_linked_list<int> dll;
     for (int i = 15; i > 0; --i)
         if (i&1)
             dll.push_back(i);
@@ -70,7 +70,7 @@ void test_dll() {
 
 void test_dll_is_palindrome() {
     cout << "\nTesting is_palindrome\n";
-    double_linked_list<int> dll;
+    doubly_linked_list<int> dll;
     for (int i = 0; i < 10; ++i)
         dll.push_back(i);
     for (int i = 0; i < 10; ++i)
@@ -83,7 +83,7 @@ void test_dll_is_palindrome() {
 
 void test_dll_sorted_insert() {
     cout << "\nTesting sorted_insert\n";
-    double_linked_list<int> dll;
+    doubly_linked_list<int> dll;
     for (int i = 15; i > 0; --i)
         if (i&1)
             dll.sorted_insert(16 - i);
@@ -96,7 +96,7 @@ void test_dll_sorted_insert() {
 
 void test_dll_remove_duplicates() {
     cout << "\nTesting remove_duplicates\n";
-    double_linked_list<int> dll;
+    doubly_linked_list<int> dll;
     for (int i = 10; i > 0; --i) {
         for (int j = 11 - i; j > 0; --j)
             dll.push_back(i);
@@ -107,6 +107,7 @@ void test_dll_remove_duplicates() {
     cout << dll;
 }
 
+// forward list ~= singly linked list
 int main() {
     test_sll();
     cout << '\n';

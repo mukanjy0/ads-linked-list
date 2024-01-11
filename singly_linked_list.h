@@ -2,18 +2,18 @@
 // Created by iansg on 1/9/2024.
 //
 
-#ifndef SINGLE_LINKED_LIST_SINGLE_LINKED_LIST_H
-#define SINGLE_LINKED_LIST_SINGLE_LINKED_LIST_H
+#ifndef SINGLE_LINKED_LIST_SINGLY_LINKED_LIST_H
+#define SINGLE_LINKED_LIST_SINGLY_LINKED_LIST_H
 
 #include <stdexcept>
 using namespace std;
 
 template<typename T>
-class single_linked_list {
+class singly_linked_list {
     class Node {
         T value {};
         Node* next {};
-        friend single_linked_list;
+        friend singly_linked_list;
     public:
         Node() = default;
         explicit Node(T val) : value(val) {}
@@ -43,7 +43,7 @@ class single_linked_list {
     }
 
 public:
-    single_linked_list() = default;
+    singly_linked_list() = default;
     T front() { return head->value; }
     T back() {
         Node* temp = head;
@@ -138,11 +138,11 @@ public:
         if (head && head->next)
             _reverse(head, head->next);
     }
-    single_linked_list<T> merge(const single_linked_list<T>& other) {
+    singly_linked_list<T> merge(const singly_linked_list<T>& other) {
         int i {}, j {};
         Node* n1 = head;
         Node* n2 = other.head;
-        single_linked_list<T> result;
+        singly_linked_list<T> result;
         while (i < sz && j < other.sz) {
             if (n1->value > n2->value) {
                 result.push_back(n2->value);
@@ -167,11 +167,11 @@ public:
         }
         return result;
     }
-    single_linked_list<T> intersect(const single_linked_list& other) {
+    singly_linked_list<T> intersect(const singly_linked_list& other) {
         int i {}, j {};
         Node* n1 = head;
         Node* n2 = other.head;
-        single_linked_list<T> result;
+        singly_linked_list<T> result;
         while (i < sz && j < other.sz) {
             if (n1->value == n2->value) {
                 result.push_back(n1->value);
@@ -189,7 +189,7 @@ public:
         }
         return result;
     }
-    friend ostream& operator<<(ostream& out, single_linked_list sll) {
+    friend ostream& operator<<(ostream& out, singly_linked_list sll) {
         Node* temp = sll.head;
         if (temp != nullptr) {
             out << temp->value;
@@ -203,4 +203,4 @@ public:
     }
 };
 
-#endif //SINGLE_LINKED_LIST_SINGLE_LINKED_LIST_H
+#endif //SINGLE_LINKED_LIST_SINGLY_LINKED_LIST_H
