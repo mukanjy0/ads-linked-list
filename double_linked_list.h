@@ -223,7 +223,29 @@ public:
             tail->next = node;
             tail = node;
         }
+    }
+    void remove_duplicates() {
+        if (head == tail) return;
 
+        Node* left = head;
+        Node* right;
+        int i {}, j;
+        while (left && left->next) {
+            right = left->next;
+            j = i + 1;
+            while (right) {
+                if (left->value == right->value) {
+                    right = right->next;
+                    remove(j);
+                }
+                else {
+                    right = right->next;
+                    ++j;
+                }
+            }
+            ++i;
+            left = left->next;
+        }
     }
     friend ostream& operator<<(ostream& out, double_linked_list dll) {
         Node* temp = dll.head;

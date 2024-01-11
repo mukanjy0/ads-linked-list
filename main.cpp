@@ -89,15 +89,31 @@ void test_dll_sorted_insert() {
             dll.sorted_insert(16 - i);
         else
             dll.sorted_insert(i);
+    dll.sorted_insert(0);
+    dll.sorted_insert(100);
     cout << dll;
 }
 
+void test_dll_remove_duplicates() {
+    cout << "\nTesting remove_duplicates\n";
+    double_linked_list<int> dll;
+    for (int i = 10; i > 0; --i) {
+        for (int j = 11 - i; j > 0; --j)
+            dll.push_back(i);
+    }
+
+    cout << dll;
+    dll.remove_duplicates();
+    cout << dll;
+}
 
 int main() {
-//    test_sll();
-//    cout << '\n';
+    test_sll();
+    cout << '\n';
     test_dll_is_palindrome();
     cout << '\n';
     test_dll_sorted_insert();
+    cout << '\n';
+    test_dll_remove_duplicates();
     return 0;
 }
