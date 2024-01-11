@@ -23,6 +23,8 @@ class single_linked_list {
     int sz {};
 
     void _reverse(Node* prev, Node* cur) {
+        prev->next = nullptr;
+
         if (cur->next == nullptr) {
             cur->next = prev;
             head = cur;
@@ -30,7 +32,6 @@ class single_linked_list {
         else {
             _reverse(cur, cur->next);
             cur->next = prev;
-            prev->next = nullptr;
         }
     }
 
