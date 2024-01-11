@@ -50,6 +50,14 @@ void test_dll() {
     dll.reverse();
     cout << "After reverse: " << dll;
 
+    // testing insert + remove
+    cout << "\nTesting insert + remove\n";
+    dll.insert(0, dll.size());
+    dll.insert(1, 0);
+    dll.insert(2, dll.size() - 1);
+    dll.remove(7);
+    cout << dll;
+
     // testing empty + clear
     cout << "\nTesting empty & clear\n";
     cout << dll;
@@ -57,6 +65,7 @@ void test_dll() {
     dll.clear();
     cout << dll;
     cout << boolalpha << dll.empty() << '\n';
+
 }
 
 int main() {
