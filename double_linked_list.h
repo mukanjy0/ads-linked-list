@@ -193,6 +193,38 @@ public:
 
         return true;
     }
+    void sorted_insert(T val) {
+        if (head == nullptr) {
+            push_back(val);
+            return;
+        }
+
+        ++sz;
+
+        Node* temp = head;
+        while (temp) {
+            if (temp->value >= val) break;
+            temp = temp->next;
+        }
+
+        if (temp) {
+            Node* node = new Node (val);
+            if (temp != head) {
+                temp->prev->next = node;
+                node->prev = temp->prev;
+            }
+            node->next = temp;
+            temp->prev = node;
+            if (temp == head) head = node;
+        }
+        else {
+            Node* node = new Node (val);
+            node->prev = tail;
+            tail->next = node;
+            tail = node;
+        }
+
+    }
     friend ostream& operator<<(ostream& out, double_linked_list dll) {
         Node* temp = dll.head;
         if (temp != nullptr) {

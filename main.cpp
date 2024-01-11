@@ -68,9 +68,7 @@ void test_dll() {
     cout << boolalpha << dll.empty() << '\n';
 }
 
-void test_dll_extra() {
-    cout << "Double linked list extra functionality test\n";
-    // testing is_palindrome
+void test_dll_is_palindrome() {
     cout << "\nTesting is_palindrome\n";
     double_linked_list<int> dll;
     for (int i = 0; i < 10; ++i)
@@ -83,9 +81,23 @@ void test_dll_extra() {
     cout << boolalpha << dll.is_palindrome() << '\n';
 }
 
+void test_dll_sorted_insert() {
+    cout << "\nTesting sorted_insert\n";
+    double_linked_list<int> dll;
+    for (int i = 15; i > 0; --i)
+        if (i&1)
+            dll.sorted_insert(16 - i);
+        else
+            dll.sorted_insert(i);
+    cout << dll;
+}
+
+
 int main() {
-    test_sll();
+//    test_sll();
+//    cout << '\n';
+    test_dll_is_palindrome();
     cout << '\n';
-    test_dll_extra();
+    test_dll_sorted_insert();
     return 0;
 }
