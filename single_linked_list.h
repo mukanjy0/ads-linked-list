@@ -115,7 +115,7 @@ public:
             temp = temp->next;
         return temp->value;
     }
-    bool empty() { return sz == 0; }
+    bool empty() { return head == nullptr; }
     int size() { return sz; }
     void clear() {
         if (head == nullptr) return;
@@ -128,6 +128,11 @@ public:
         }
         delete head;
         head = nullptr;
+    }
+    // insertion sort
+    void sort() {
+        for (int i = 0; i < sz; ++i)
+            _insertion_sort(head, i);
     }
     void reverse() {
         if (head && head->next)
@@ -183,11 +188,6 @@ public:
             }
         }
         return result;
-    }
-    // insertion sort
-    void sort() {
-         for (int i = 0; i < sz; ++i)
-             _insertion_sort(head, i);
     }
     friend ostream& operator<<(ostream& out, single_linked_list sll) {
         Node* temp = sll.head;

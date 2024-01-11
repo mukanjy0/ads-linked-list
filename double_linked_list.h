@@ -111,7 +111,7 @@ public:
 
         ++sz;
     }
-    void remove(int pos) {
+    void remove(int pos) {          // position is 0-indexed
         if (pos >= sz || pos < 0)
             throw invalid_argument("Invalid position.");
 
@@ -145,7 +145,7 @@ public:
         return temp->value;
     }
     bool empty() {
-        return sz == 0;
+        return head == nullptr;
     }
     int size() {
         return sz;

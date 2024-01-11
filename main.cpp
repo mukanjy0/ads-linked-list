@@ -70,6 +70,6 @@ void test_dll() {
 }
 
 int main() {
-    test_sll();
+    test_dll();
     return 0;
 }
