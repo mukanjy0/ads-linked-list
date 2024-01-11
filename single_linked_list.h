@@ -73,29 +73,39 @@ public:
         Node* node = new Node(val);
         temp->next = node;
     }
-    void pop_front() {
-        if (head == nullptr) return;
+    T pop_front() {
+        if (head == nullptr)
+            throw runtime_error("Can't pop when list is empty.");
         Node* temp = head;
         head = temp->next;
-        delete temp;
 
         --sz;
+
+        T el = temp->value;
+        delete temp;
+        return el;
     }
-    void pop_back() {
-        if (head == nullptr) return;
+    T pop_back() {
+        if (head == nullptr)
+            throw runtime_error("Can't pop when list is empty.");
+
+        --sz;
+
         if (head->next == nullptr) {
+            T el = head->value;
             delete head;
             head = nullptr;
-            return;
+            return el;
         }
         Node* temp = head;
         while (temp->next->next != nullptr) {
             temp = temp->next;
         }
+
+        T el = temp->next->value;
         delete temp->next;
         temp->next = nullptr;
-
-        --sz;
+        return el;
     }
     T operator[](int k) {
         if (k >= sz)

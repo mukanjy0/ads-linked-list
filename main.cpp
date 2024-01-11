@@ -13,7 +13,8 @@ void test_sll() {
 
     sll.sort();
     cout << sll;
-    sll.pop_back();
+    cout << sll.pop_front() <<'\n';
+    cout << sll.pop_back() <<'\n';
     sll.push_front(0);
     cout << sll.size() << ' ' <<  sll.front() << ' ' << sll.back() << '\n';
 
@@ -69,6 +70,6 @@ void test_dll() {
 }
 
 int main() {
-    test_dll();
+    test_sll();
     return 0;
 }
