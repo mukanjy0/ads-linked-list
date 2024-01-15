@@ -1,6 +1,7 @@
 #include <iostream>
 #include "singly_linked_list.h"
 #include "doubly_linked_list.h"
+#include "circular_doubly_linked_list.h"
 
 using namespace std;
 
@@ -107,14 +108,35 @@ void test_dll_remove_duplicates() {
     cout << dll;
 }
 
+void test_cdll() {
+    cout << "singly linked list tests\n";
+    circular_doubly_linked_list<int> cdll;
+    cout << boolalpha << cdll.empty() << '\n';
+    for (int i = 0 ; i < 10; ++i)
+        cdll.push_front(i);
+    cout << boolalpha << cdll.empty() << ' ' << cdll.size() << '\n';
+    cdll.reverse();
+    cout << cdll;
+    for (int i = 10 ; i < 20; ++i)
+        cdll.push_back(i);
+    cout << cdll;
+    cout << cdll.pop_front() << ' ' << cdll.pop_back() << '\n';
+    cdll.insert(14, 15);
+    cout << cdll;
+    cout << cdll.size() << '\n';
+    cdll.remove(15);
+    cout << cdll;
+}
+
 // forward list ~= singly linked list
 int main() {
-    test_sll();
-    cout << '\n';
-    test_dll_is_palindrome();
-    cout << '\n';
-    test_dll_sorted_insert();
-    cout << '\n';
-    test_dll_remove_duplicates();
+//    test_sll();
+//    cout << '\n';
+//    test_dll_is_palindrome();
+//    cout << '\n';
+//    test_dll_sorted_insert();
+//    cout << '\n';
+//    test_dll_remove_duplicates();
+    test_cdll();
     return 0;
 }

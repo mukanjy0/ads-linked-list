@@ -107,11 +107,11 @@ public:
         temp->next = nullptr;
         return el;
     }
-    T operator[](int k) {
-        if (k >= sz)
+    T operator[](int pos) {
+        if (pos >= sz || pos < 0)
             throw invalid_argument("Not a valid index.");
         Node* temp = head;
-        for (int i = 0; i < k; ++i)
+        for (int i = 0; i < pos; ++i)
             temp = temp->next;
         return temp->value;
     }

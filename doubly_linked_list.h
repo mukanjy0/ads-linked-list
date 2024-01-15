@@ -135,8 +135,8 @@ public:
         --sz;
     }
     T operator[](int pos) {
-        if (pos >= sz)
-            throw invalid_argument("Invalid position.");
+        if (pos >= sz || pos < 0)
+            throw invalid_argument("Not a valid index.");
 
         Node* temp = head;
         for (int i = 0; i < pos; ++i)
